@@ -1,4 +1,6 @@
-## # **Overview**
+# **Smart-integrated-automation-system-for-industrial-and-domestic-purpose**
+
+## **Overview**
 Home automation, Smart Institute, Home control, and digital home are different names for systems designed to provide comfort, convenience, security, and power savings. These systems are gaining importance in today's world. While they can be expensive, they can also be cost-effective when tailored to specific needs. This project aims to create a new generation of smart automation systems that allow users to control home appliances and industrial/institutional devices from anywhere via the Internet or mobile apps on open-source platforms like Android.
 
 
