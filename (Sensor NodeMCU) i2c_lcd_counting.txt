@@ -1,0 +1,57 @@
+#include <Wire.h>  // This library is already built in to the Arduino IDE
+#include <LiquidCrystal_I2C.h> //This library you can add via Include Library > Manage Library > 
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+#define ir A0
+#define ir1 12
+#define buzzer 14
+int counter=0;
+int counter1=0;
+int person=0;
+void setup()
+{
+  Serial.begin(9600);
+  lcd.init();   // initializing the LCD
+  lcd.backlight(); // Enable or Turn On the backlight 
+  lcd.print(" Hello Makers "); // Start Printing
+  pinMode(ir,INPUT);
+  pinMode(ir1,INPUT);
+  pinMode(buzzer,OUTPUT);
+  digitalWrite(buzzer,LOW);
+}
+
+void loop()
+{
+  // Nothing Absolutely Nothing!
+  counter=analogRead(ir);
+  counter1=digitalRead(ir1);
+  Serial.println(counter);
+  if(counter>512)
+  {
+   digitalWrite(buzzer,HIGH); 
+   person=person+1;
+   delay(1000); 
+   digitalWrite(buzzer,LOW); 
+   lcd.clear();
+  }
+    else if(counter1==HIGH)
+  {
+   digitalWrite(buzzer,HIGH); 
+   person=person-1;
+   if(person==1){person=0;}
+   delay(1000); 
+   digitalWrite(buzzer,LOW); 
+   lcd.clear();
+  }
+   lcd.setCursor(0,0);
+   lcd.print("counter");
+   lcd.setCursor(0,1);
+   lcd.print(person);
+   if(person>9)
+   {
+    digitalWrite(buzzer,LOW);  
+   }
+   else
+   {
+    digitalWrite(buzzer,HIGH); 
+   }
+}
