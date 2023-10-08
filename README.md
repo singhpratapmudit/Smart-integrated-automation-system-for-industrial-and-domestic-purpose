@@ -1,9 +1,9 @@
 # Smart-integrated-automation-system-for-industrial-and-domestic-purpose
-Smart Home Automation System
-Overview
+
+###Overview
 Home automation, Smart Institute, Home control, and digital home are different names for systems designed to provide comfort, convenience, security, and power savings. These systems are gaining importance in today's world. While they can be expensive, they can also be cost-effective when tailored to specific needs. This project aims to create a new generation of smart automation systems that allow users to control home appliances and industrial/institutional devices from anywhere via the Internet or mobile apps on open-source platforms like Android.
 
-Project Modules
+###Project Modules
 This project consists of three major modules:
 
 Client Server: The heart of the system that manages communication between devices, users, and sensors.
@@ -59,6 +59,9 @@ Contributors
 License
 This project is open-source and is available under the [insert license name here]. See the LICENSE file for details.
 
+Acknowledgments
+[Any acknowledgments or credits]
+Note: Please replace "[Your Name]" and "[Team Member 1]" with actual names and add appropriate license details in the LICENSE.md file.
 Acknowledgments
 [Any acknowledgments or credits]
 Note: Please replace "[Your Name]" and "[Team Member 1]" with actual names and add appropriate license details in the LICENSE.md file.
