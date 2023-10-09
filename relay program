@@ -1,0 +1,124 @@
+// Fill-in information from your Blynk Template here
+//#define BLYNK_TEMPLATE_ID             ""
+//#define BLYNK_DEVICE_NAME             ""
+//#define BLYNK_TEMPLATE_ID "TMPLDjm5hx1q"
+//#define BLYNK_DEVICE_NAME "robot"
+#define BLYNK_TEMPLATE_ID "TMPLILT44k1Y"
+#define BLYNK_DEVICE_NAME "NodeMCU"
+#define BLYNK_FIRMWARE_VERSION        "0.1.0"
+#define BLYNK_PRINT Serial
+//#define BLYNK_DEBUG
+#include <Wire.h>  // This library is already built in to the Arduino IDE
+#include <LiquidCrystal_I2C.h> //This library you can add via Include Library > Manage Library > 
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+#define ir A0
+#define buzzer 0
+int counter=0;
+int person=0;
+#define APP_DEBUG
+
+// Uncomment your board, or configure a custom board in Settings.h
+//#define USE_SPARKFUN_BLYNK_BOARD
+//#define USE_NODE_MCU_BOARD
+//#define USE_WITTY_CLOUD_BOARD
+
+#include "BlynkEdgent.h"
+#define m11 14
+#define m12 12
+#define m21 13
+#define m22 A0
+#define pump 15
+int pinValue=0;
+int pinValue1=0;
+int pinValue2=0;
+int pinValue3=0;
+int pinValue4=0;
+int pinValue5=0;
+BLYNK_WRITE(V1)
+{
+ pinValue1 = param.asInt(); // assigning incoming value from pin V1 to a variable
+}
+BLYNK_WRITE(V2)
+{
+ pinValue2 = param.asInt(); // assigning incoming value from pin V1 to a variable
+ // process received value
+}
+BLYNK_WRITE(V3)
+{
+ pinValue3 = param.asInt(); // assigning incoming value from pin V1 to a variable
+ // process received value
+}
+BLYNK_WRITE(V4)
+{
+ pinValue4 = param.asInt(); // assigning incoming value from pin V1 to a variable
+ // process received value
+}
+
+BLYNK_WRITE(V5)
+{
+ pinValue5 = param.asInt(); // assigning incoming value from pin V1 to a variable
+ // process received value
+}
+void setup()
+{
+  Serial.begin(115200);
+  lcd.init();   // initializing the LCD
+  lcd.backlight(); // Enable or Turn On the backlight 
+  lcd.print(" Hello Makers "); // Start Printing
+  pinMode(ir,INPUT);
+  pinMode(buzzer,OUTPUT);
+  digitalWrite(buzzer,LOW); 
+  delay(100);
+ pinMode(m11, OUTPUT);  
+  pinMode(m12, OUTPUT);  
+  pinMode(m21, OUTPUT);  
+  pinMode(m22, OUTPUT); 
+  pinMode(pump, OUTPUT);
+  BlynkEdgent.begin();
+}
+
+void loop() 
+{
+  BlynkEdgent.run();
+ if(pinValue1==1)
+ {
+  digitalWrite(m11,HIGH);
+  Serial.println("forward");  
+ }
+ else
+ {
+  digitalWrite(m11,LOW);
+  Serial.println("forward");  
+ }
+ if(pinValue2==1)
+ {
+  digitalWrite(m12,HIGH);
+  Serial.println("backward");
+ }
+ else
+ {
+  digitalWrite(m12,LOW);
+  Serial.println("backward");
+ }
+if(pinValue3==1)
+ {
+  digitalWrite(m21,HIGH); 
+  Serial.println("left"); 
+ }
+ else
+ {
+  digitalWrite(m21,LOW); 
+  Serial.println("left"); 
+ }
+ 
+ if(pinValue4==1)
+ {
+  digitalWrite(m22,HIGH); 
+  Serial.println("right");
+ }
+ else
+ {
+  digitalWrite(m22,LOW); 
+  Serial.println("stop"); 
+ }
+}
